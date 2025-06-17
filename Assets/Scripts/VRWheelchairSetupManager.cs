@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
@@ -42,7 +43,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [Header("インタラクション設定")]
         [SerializeField]
         [Tooltip("タイヤのインタラクションレイヤー")]
-        private LayerMask m_WheelInteractionLayer = -1;
+        private InteractionLayerMask m_WheelInteractionLayer = -1;
 
         [SerializeField]
         [Tooltip("VR移動プロバイダーを無効化")]
@@ -159,8 +160,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
             rb.mass = m_WheelchairMass;
-            rb.drag = 1f;
-            rb.angularDrag = 5f;
+            rb.linearDamping = 1f;
+            rb.angularDamping = 5f;
             rb.useGravity = true;
             rb.isKinematic = false;
 
